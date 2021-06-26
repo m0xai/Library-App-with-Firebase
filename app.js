@@ -1,6 +1,5 @@
 const form = document.getElementById('modal-id');
 const booksWrap = document.querySelector('#books-wrap');
-
 function toggleModal() {
   if (form.classList.contains('active')) {
     form.classList.remove('active');
@@ -29,46 +28,58 @@ function formSubmit() {
   submittedBook = new Book(
     `${document.getElementById('inFormBookName').value}` || 'Leaved Blank!',
     `${document.getElementById('inFormAuthorName').value}` || 'Leaved Blank!',
-    `${+document.getElementById('inFormPagesNum').value}` || 'Leaved Blank!',
+    `${document.getElementById('inFormPagesNum').value}` || 'Leaved Blank!',
     `${document.getElementById('inFormNotes').value}` || 'Leaved Blank!',
     `${document.getElementById('inFormIsRead').checked}`,
     `${uniqId}`
   );
 
   myLibrary.push(submittedBook);
-  printToScreen();
+  toggleModal();
+  updateBooksList();
 }
 
-function printToScreen() {
-  const { name, author, pages, description, isRead, uniqId } = submittedBook;
-
-  booksWrap.insertAdjacentHTML(
-    `afterbegin`,
-    `
-        <div class="book" data-id="${uniqId}">
-        <h4 class="book-title">${name}</h4>
-        <span class="book-author text-bold">${author}</span>
-        <span class="book-pages float-right text-bold">${pages}</span>
+function updateBooksList() {
+  booksWrap.innerHTML = '';
+  for (let book of myLibrary) {
+    let singleBook = document.createElement('div');
+    singleBook.innerHTML = `
+        <div class="book" data-id="${book.uniqId}">
+        <h4 class="book-title">${book.name}</h4>
+        <span class="book-author text-bold">${book.author}</span>
+        <span class="book-pages float-right text-bold">${book.pages}</span>
         <div class="divider"></div>
         <p class="book-description">
-          ${description}
+          ${book.description}
         </p>
         <div class="book-footer">
           <div class="form-group float-right">
             <label class="form-switch">
-              <input type="checkbox" ${isRead === 'true' ? 'checked' : ''}/>
+              <input type="checkbox" ${
+                book.isRead === 'true' ? 'checked' : ''
+              }/>
               <i class="form-icon"></i>
               Is Read?
             </label>
           </div>
-          <button class="btn btn-sm btn-action btn-error">
+          <button class="btn btn-sm btn-action btn-error" onclick="console.log(${
+            book.uniqId
+          })">
             <i class="icon icon-delete"></i>
           </button>
         </div>
         </div>
-`
-  );
-  toggleModal();
+`;
+    booksWrap.appendChild(singleBook);
+  }
 }
 
-function delBook(uniqID) {}
+// function delBook(bookId) {
+//   for (let book of myLibrary) {
+//     if (book.uniqId === bookId) {
+//       myLibrary.splice(book, 1);
+//       console.log(myLibrary.indexOf(book));
+//       updateBooksList();
+//     }
+//   }
+// }
