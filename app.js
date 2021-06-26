@@ -9,7 +9,6 @@ function toggleModal() {
 }
 
 let myLibrary = [];
-let submittedBook;
 
 class Book {
   constructor(name, author, pages, description, isRead, uniqId) {
@@ -25,7 +24,7 @@ class Book {
 function formSubmit() {
   let uniqId = Date.now();
 
-  submittedBook = new Book(
+  let submittedBook = new Book(
     `${document.getElementById('inFormBookName').value}` || 'Leaved Blank!',
     `${document.getElementById('inFormAuthorName').value}` || 'Leaved Blank!',
     `${document.getElementById('inFormPagesNum').value}` || 'Leaved Blank!',
@@ -41,8 +40,12 @@ function formSubmit() {
 
 function updateBooksList() {
   booksWrap.innerHTML = '';
+
+  !booksWrap.innerHTML ? listBooks() : '';
+
   for (let book of myLibrary) {
-    let singleBook = document.createElement('div');
+    const singleBook = document.createElement('div');
+    singleBook.setAttribute('class', 'bookCard');
     singleBook.innerHTML = `
         <div class="book" data-id="${book.uniqId}">
         <h4 class="book-title">${book.name}</h4>
@@ -75,6 +78,12 @@ function updateBooksList() {
     delBtn.onclick = delBook;
   }
 }
+
+const listBooks = () => {
+  return myLibrary.sort((a, b) => {
+    return b.uniqId - a.uniqId;
+  });
+};
 
 function delBook(bookId) {
   bookId = this.dataset.btnId;
