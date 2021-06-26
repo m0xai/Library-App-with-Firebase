@@ -62,24 +62,27 @@ function updateBooksList() {
               Is Read?
             </label>
           </div>
-          <button class="btn btn-sm btn-action btn-error" onclick="console.log(${
+          <button type="button" class="btn btn-sm btn-action btn-error" data-btn-id="${
             book.uniqId
-          })">
+          }">
             <i class="icon icon-delete"></i>
           </button>
         </div>
         </div>
 `;
     booksWrap.appendChild(singleBook);
+    let delBtn = document.querySelector(`[data-btn-id = "${book.uniqId}"]`);
+    delBtn.onclick = delBook;
   }
 }
 
-// function delBook(bookId) {
-//   for (let book of myLibrary) {
-//     if (book.uniqId === bookId) {
-//       myLibrary.splice(book, 1);
-//       console.log(myLibrary.indexOf(book));
-//       updateBooksList();
-//     }
-//   }
-// }
+function delBook(bookId) {
+  bookId = this.dataset.btnId;
+  for (let book of myLibrary) {
+    if (book.uniqId === bookId) {
+      myLibrary.splice(myLibrary.indexOf(book), 1);
+      console.log(myLibrary.indexOf(book));
+      updateBooksList();
+    }
+  }
+}
