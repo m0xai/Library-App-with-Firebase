@@ -1,0 +1,55 @@
+@import './css/spectre-icons.min.css';
+@import './css/spectre.min.css';
+
+body {
+  max-width: 1050px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+#site-header,
+#site-main,
+#site-footer {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* Header Styles */
+
+#site-name {
+  text-align: center;
+  flex: 0 1 100%;
+}
+
+#top-nav {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.top-nav-left {
+}
+
+.top-nav-right {
+}
+
+hr {
+  width: 100%;
+  border-width: 0.1em;
+  border-color: dimgray;
+}
+/* Main Styles */
+#books-wrap {
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.book {
+  margin: 20px;
+  height: 300px;
+  width: 200px;
+  border: 1px solid red;
+}
+/* Footer Styles */
