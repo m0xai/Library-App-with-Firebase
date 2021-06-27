@@ -1,3 +1,5 @@
+// TODO: Add a function to update isRead value, when user clicked on this in books list.
+
 const form = document.getElementById('modal-id');
 const booksWrap = document.querySelector('#books-wrap');
 function toggleModal() {
