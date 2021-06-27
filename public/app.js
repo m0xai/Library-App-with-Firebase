@@ -34,7 +34,14 @@ function formSubmit() {
     `${document.getElementById('inFormIsRead').checked}`,
     `${uniqId}`
   );
-
+  appendBooks(
+    submittedBook.uniqId,
+    submittedBook.name,
+    submittedBook.author,
+    submittedBook.pages,
+    submittedBook.description,
+    submittedBook.isRead
+  );
   myLibrary.push(submittedBook);
   toggleModal();
   updateBooksList();
