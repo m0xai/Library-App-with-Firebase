@@ -15,8 +15,22 @@ function appendBooks(uniqId, name, author, pages, description, isRead) {
 }
 
 let getBooksFromFirebase;
-var booksList = firebase.database().ref('books/');
-booksList.on('value', (snapshot) => {
+let bookList = {};
+var booksDataRef = firebase.database().ref('books/');
+
+booksDataRef.on('value', (snapshot) => {
   getBooksFromFirebase = snapshot.val();
-  console.log(getBooksFromFirebase);
+  console.log('getBooksFromFirebase: ', getBooksFromFirebase);
+
+  function listBooks() {
+    Object.keys(getBooksFromFirebase)
+      .sort(function (a, b) {
+        return getBooksFromFirebase[b].uniqId - getBooksFromFirebase[a].uniqId;
+      })
+      .forEach(function (key) {
+        bookList[key] = getBooksFromFirebase[key];
+      });
+  }
+  listBooks();
+  updateBooksList(); // Call it, in order to list all books on load.
 });
