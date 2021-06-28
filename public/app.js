@@ -1,4 +1,5 @@
 // TODO: Add a function to update isRead value, when user clicked on this in books list.
+// TODO: Reference'yi okuyop App'i gelistir. (https://firebase.google.com/docs/reference/js/firebase.database?authuser=0)
 
 const form = document.getElementById('modal-id');
 const booksWrap = document.querySelector('#books-wrap');
@@ -47,32 +48,34 @@ function formSubmit() {
 function updateBooksList() {
   booksWrap.innerHTML = '';
 
-  for (let book in bookList) {
+  for (let book in getBooksFromFirebase) {
     const singleBook = document.createElement('div');
     singleBook.setAttribute('class', 'bookCard');
     singleBook.innerHTML = `
-        <div class="book" data-id="${bookList[book].uniqId}">
-        <h4 class="book-title">${bookList[book].name}</h4>
-        <span class="book-author text-bold">${bookList[book].author}</span>
+        <div class="book" data-id="${getBooksFromFirebase[book].uniqId}">
+        <h4 class="book-title">${getBooksFromFirebase[book].name}</h4>
+        <span class="book-author text-bold">${
+          getBooksFromFirebase[book].author
+        }</span>
         <span class="book-pages float-right text-bold">${
-          bookList[book].pages
+          getBooksFromFirebase[book].pages
         }</span>
         <div class="divider"></div>
         <p class="book-description">
-          ${bookList[book].description}
+          ${getBooksFromFirebase[book].description}
         </p>
         <div class="book-footer">
           <div class="form-group float-right">
             <label class="form-switch">
               <input type="checkbox" ${
-                bookList[book].isRead === 'true' ? 'checked' : ''
+                getBooksFromFirebase[book].isRead === 'true' ? 'checked' : ''
               }/>
               <i class="form-icon"></i>
               Is Read?
             </label>
           </div>
           <button type="button" class="btn btn-sm btn-action btn-error" data-btn-id="${
-            bookList[book].uniqId
+            getBooksFromFirebase[book].uniqId
           }">
             <i class="icon icon-delete"></i>
           </button>
@@ -81,7 +84,7 @@ function updateBooksList() {
 `;
     booksWrap.appendChild(singleBook);
     let delBtn = document.querySelector(
-      `[data-btn-id = "${bookList[book].uniqId}"]`
+      `[data-btn-id = "${getBooksFromFirebase[book].uniqId}"]`
     );
     delBtn.onclick = delBook;
   }
@@ -91,7 +94,7 @@ function delBook(bookId) {
   bookId = this.dataset.btnId;
   firebase
     .database()
-    .ref('books/' + bookId)
+    .ref('users/' + userId + '/books/' + bookId)
     .set(null);
   updateBooksList();
 }

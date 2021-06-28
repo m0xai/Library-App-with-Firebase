@@ -24,10 +24,17 @@
       <h1 id="site-name">Die Bibliothek e.V</h1>
       <div id="top-nav">
         <div class="top-nav-left">
-          <h2>Bibliothek</h2>
-          <button onclick="googleLogin()"> Login with Google </button>
+          <h2>Bibliothek</h2> 
+            <div id="whenSignedOut">
+              <button id="signInBtn"> Login with Google </button>
+            </div>
         </div>
-        <div class="top-nav-right">
+
+        <div class="top-nav-right" id="whenSignedIn" hidden="true">
+          <div id="userDetails">
+
+          </div>
+          <button id="signOutBtn">Log Out</button>
           <button type="button mr-2">Remove All</button>
           <button type="button" onclick="toggleModal()" class="btn btn-primary ml-2">
             <i class="icon icon-plus"></i>
@@ -72,6 +79,7 @@
           </div>
           <!-- End of Modal -->
         </div>
+
       </div>
       <hr id="navbar-hr" />
     </header>
