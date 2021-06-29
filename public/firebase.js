@@ -45,12 +45,12 @@ function appendBooks(uniqId, name, author, pages, description, isRead) {
     });
 }
 
-let booksList = {};
 let getBooksFromFirebase;
-var booksDataRef = firebase.database().ref(`users/`);
+var booksDataRef = firebase.database().ref(`users/`).orderByKey();
 
 booksDataRef.on('value', (snapshot) => {
-  getBooksFromFirebase = snapshot.child(userId).child('books').val();
+  getBooksFromFirebase = snapshot.child(userId).child('/books').val();
+
   console.log('getBooksFromFirebase: ', getBooksFromFirebase);
   updateBooksList(); // Call it, in order to list all books on load.
 });

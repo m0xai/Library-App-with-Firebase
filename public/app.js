@@ -1,5 +1,6 @@
 // TODO: Add a function to update isRead value, when user clicked on this in books list.
 // TODO: Reference'yi okuyop App'i gelistir. (https://firebase.google.com/docs/reference/js/firebase.database?authuser=0)
+// TODO: Descending Order (https://stackoverflow.com/a/44443042/13345848)
 
 const form = document.getElementById('modal-id');
 const booksWrap = document.querySelector('#books-wrap');
@@ -51,7 +52,9 @@ function updateBooksList() {
   for (let book in getBooksFromFirebase) {
     const singleBook = document.createElement('div');
     singleBook.setAttribute('class', 'bookCard');
-    singleBook.innerHTML = `
+    booksWrap.insertAdjacentHTML(
+      'afterbegin',
+      `
         <div class="book" data-id="${getBooksFromFirebase[book].uniqId}">
         <h4 class="book-title">${getBooksFromFirebase[book].name}</h4>
         <span class="book-author text-bold">${
@@ -81,8 +84,9 @@ function updateBooksList() {
           </button>
         </div>
         </div>
-`;
-    booksWrap.appendChild(singleBook);
+`
+    );
+    // booksWrap.appendChild(singleBook);
     let delBtn = document.querySelector(
       `[data-btn-id = "${getBooksFromFirebase[book].uniqId}"]`
     );
