@@ -4,92 +4,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Die Bibliothek e.V</title>
-    <!-- update the version number as needed -->
     <script src="/__/firebase/8.6.8/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
     <script  src="/__/firebase/8.6.8/firebase-auth.js"></script>
     <script  src="/__/firebase/8.6.8/firebase-database.js"></script>
-    <script  src="/__/firebase/8.6.8/firebase-storage.js"></script>
     <script  src="/__/firebase/8.6.8/firebase-analytics.js"></script>
-    <script  src="/__/firebase/8.6.8/firebase-performance.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
     <script src="/__/firebase/init.js"></script>
+    <link href="https://unpkg.com/@primer/css@^16.0.0/dist/primer.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
-    <header id="site-header">
-      <h1 id="site-name">Die Bibliothek e.V</h1>
-      <div id="top-nav">
-        <div class="top-nav-left">
-          <h2>Bibliothek</h2> 
-            <div id="whenSignedOut">
-              <button id="signInBtn"> Login with Google </button>
-            </div>
-        </div>
-
-        <div class="top-nav-right" id="whenSignedIn" hidden="true">
-          <div id="userDetails">
-
-          </div>
-          <button id="signOutBtn">Log Out</button>
-          <button type="button mr-2">Remove All</button>
-          <button type="button" onclick="toggleModal()" class="btn btn-primary ml-2">
-            <i class="icon icon-plus"></i>
-          </button>
-          <div class="modal" id="modal-id">
-            <a href="#close" class="modal-overlay" aria-label="Close"></a>
-            <div class="modal-container">
-              <div class="modal-header">
-                <a href="#close" onclick="toggleModal()" class="btn btn-clear float-right" aria-label="Close"></a>
-                <div class="modal-title h5">
-                  Die Daten des Buches
-                </div>
-              </div>
-              <div class="modal-body">
-                <div class="content">
-                  <!-- content here -->
-                  <div class="form-group">
-                    <label class="form-label" for="inFormBookName">Name des Buches</label>
-                    <input class="form-input" type="text" id="inFormBookName" placeholder="Name" required />
-                    <br>
-                    <label class="form-label" for="inFormAuthorName">Author des Buches</label>
-                    <input class="form-input" type="text" id="inFormAuthorName" placeholder="Author:in" required />
-                    <br>
-                    <label class="form-label" for="inFormPagesNum">Anzahl der Seiten</label>
-                    <input class="form-input" type="number" id="inFormPagesNum" placeholder="Seitenanzahl" required />
-                    <br>
-                    <label class="form-label" for="inFormNotes">Notizen</label>
-                    <textarea class="form-input" id="inFormNotes" placeholder="Ihre Notizen ueber das Buch..."
-                      rows="3"></textarea>
-                    <br>
-                    <label class="form-switch">
-                      <input type="checkbox" id="inFormIsRead" />
-                      <i class="form-icon"></i> Haben Sie es gelesen?
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button class="btn btn-primary input-group-btn" type="submit" onclick="formSubmit()">Submit</button>
-              </div>
-            </div>
-          </div>
-          <!-- End of Modal -->
-        </div>
-
+    <header id="siteHeader">
+      <div id="siteName">
+        <h1 class="h1">Die Bibliothek e.V</h1>
       </div>
-      <hr id="navbar-hr" />
+
     </header>
+
     <main id="site-main">
-      <div id="books-wrap">
-    
+      <div id="landing-wrapper" class="height-full flex-column flex-justify-center">
+        <p class="h1">Organise now your library</p>
+        <button class="btn btn-large btn-primary h4" id="signInBtn" type="button">Get Started</button>
       </div>
     </main>
     <footer id="site-footer"></footer>
-    <script src="firebase.js"></script>
-    <script src="app.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

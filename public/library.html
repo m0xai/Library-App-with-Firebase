@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Library | Die Bibliothek e.V</title>
+    <script src="/__/firebase/8.6.8/firebase-app.js"></script>
+    <script  src="/__/firebase/8.6.8/firebase-auth.js"></script>
+    <script  src="/__/firebase/8.6.8/firebase-database.js"></script>
+    <script  src="/__/firebase/8.6.8/firebase-analytics.js"></script>
+    <script src="/__/firebase/init.js"></script>
+    <link href="https://unpkg.com/@primer/css@^16.0.0/dist/primer.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <header id="siteHeader" class="d-flex flex-row flex flex-justify-between flex-items-center">
+      <div id="siteName" class="flex-1">
+        <h1 class="h1">Die Bibliothek e.V</h1>
+      </div>
+
+      <nav id="navBar" class="d-flex flex-row flex-justify-between flex-items-center">
+          <a href="/">Home</a>
+          <a href="#">About</a>
+          <div id="userDetails" >
+            <details class="dropdown details-reset details-overlay d-inline-block">
+              <summary class="btn d-flex flex-row flex-nowrap flex-justify-between flex-items-center" aria-haspopup="true">
+                <span id="displayNameWrap"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                  <path fill-rule="evenodd"
+                    d="M10.5 5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zm.061 3.073a4 4 0 10-5.123 0 6.004 6.004 0 00-3.431 5.142.75.75 0 001.498.07 4.5 4.5 0 018.99 0 .75.75 0 101.498-.07 6.005 6.005 0 00-3.432-5.142z">
+                  </path>
+                </svg>
+                <div class="dropdown-caret"></div>
+              </summary>
+              <ul class="dropdown-menu dropdown-menu-se">
+                <li><span id="displayIdWrap"></span></li>
+                <li><button id="signOutBtn" class="btn btn-invisible" type="button">Log Out</button></li>
+              </ul>
+            </details>
+          </div>
+      </nav>
+    </header>
+    <div class="Subhead">
+      <div class="Subhead-heading">📚 Your Books</div>
+
+      <div class="Subhead-actions">
+        <!-- Trigger/Open The Modal -->
+        <button id="toggleModalBtn" class="Btn btn btn-primary">Add new book</button>
+      </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal" style="display: none;">
+          <!-- Modal content -->
+          <div class="modal-content Box">
+            <form>
+              <div class="Box-header d-flex flex-items-center">
+                <h3 class="Box-title overflow-hidden flex-auto">
+                  Add a new book to your Library
+                </h3>
+                <span onclick="toggleModal()">&times;</span>
+              </div>
+        
+              <div class="Box-body">
+                <div class="form-group mb-3">
+                  <label for="inFormBookName">Name</label>
+                  <br>
+                  <input class="form-control  input-block" type="text" id="inFormBookName" placeholder="Name of the book"
+                    aria-label="Name of the book" />
+                </div>
+        
+                <div class="form-group mb-3">
+                  <label for="inFormAuthorName">Written by</label>
+                  <br>
+                  <input class="form-control input-block" type="text" id="inFormAuthorName" placeholder="Author of the book"
+                    aria-label="Author of the book" />
+                </div>
+        
+                <div class="form-group mb-3">
+                  <label for="inFormPagesNum">Total Pages</label>
+                  <br>
+                  <input class="form-control " type="number" id="inFormPagesNum" placeholder="Page number of the book"
+                    aria-label="Page number of the book" />
+                </div>
+        
+                <div class="form-group mb-3">
+                  <label for="inFormNotes">Comments / Notes</label>
+                  <br>
+                  <textarea class="form-control input-block" type="text" id="inFormNotes"
+                    placeholder="Here you can write your notes or commets about the book"
+                    aria-label="Here you can write your notes or commets about the book" /></textarea>
+                </div>
+        
+                <div class="form-group">
+                  <label for="inFormIsRead">
+                    <p class="mr-2">Is already read?</p>
+                    <input id="inFormIsRead" type="checkbox" />
+                  </label>
+                </div>
+              </div>
+        
+              <div class="Box-footer mb-3">
+                <div class="form-group">
+                  <button class="btn text-left btn-danger float-left" id="formReset"
+                    type="reset">Clear</button>
+                    <div class="float-right">
+                      <button class="btn btn-invisible" onclick="toggleModal()" type="button">Cancel</button>
+                      <button class="btn btn-primary" onclick="formSubmit()" type="button">Submit</button>
+                    </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <main id="site-main">
+      <div id="books-wrap">
+    
+      </div>
+    </main>
+    <footer id="site-footer"></footer>
+    <script src="lib.js"></script>
+  </body>
+</html>

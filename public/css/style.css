@@ -1,10 +1,6 @@
-@import './spectre-icons.min.css';
-@import './spectre.min.css';
-
 body {
   max-width: 1050px;
   margin: 0 auto;
-  font-family: 'Lato', sans-serif;
 }
 
 #site-header,
@@ -15,33 +11,14 @@ body {
 }
 
 /* Header Styles */
-
-#site-name {
-  text-align: center;
-  flex: 0 1 100%;
-}
-
-#top-nav {
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-}
-
-.top-nav-left {
-}
-
-.top-nav-right {
-}
-
-#navbar-hr {
-  width: 100%;
-  border-width: 0.1em;
-  border-color: dimgray;
+#navBar {
+  width: 320px;
 }
 /* Main Styles */
+
 #books-wrap {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -56,3 +33,42 @@ body {
   box-shadow: 1px 1px 4px rgb(182, 182, 182);
 }
 /* Footer Styles */
+
+/* Modal Codes */
+/* The Modal (background) */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  display: none;
+  height: 100%;
+  width: 100%;
+  overflow: scroll; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5px auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 480px; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
