@@ -13,12 +13,13 @@
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
-    <header id="siteHeader" class="d-flex flex-row flex flex-justify-between flex-items-center">
-      <div id="siteName" class="flex-1">
+    <div id="wrapper">
+    <header id="site-header" class="mb-8">
+      <div id="siteName" class="mb-3 flex-1">
         <h1 class="h1">Die Bibliothek e.V</h1>
       </div>
 
-      <nav id="navBar" class="d-flex flex-row flex-justify-between flex-items-center">
+      <nav id="navBar" class="mb-3 flex-1 d-flex flex-row flex-justify-between flex-items-center">
           <a href="/">Home</a>
           <a href="#">About</a>
           <div id="userDetails" >
@@ -39,15 +40,14 @@
             </details>
           </div>
       </nav>
-    </header>
-    <div class="Subhead">
-      <div class="Subhead-heading">📚 Your Books</div>
-
-      <div class="Subhead-actions">
-        <!-- Trigger/Open The Modal -->
-        <button id="toggleModalBtn" class="Btn btn btn-primary">Add new book</button>
-      </div>
-
+      <div class="Subhead">
+        <div class="Subhead-heading">📚 Your Books</div>
+      
+        <div class="Subhead-actions">
+          <!-- Trigger/Open The Modal -->
+          <button id="toggleModalBtn" class="Btn btn btn-primary">Add new book</button>
+        </div>
+      
         <!-- The Modal -->
         <div id="myModal" class="modal" style="display: none;">
           <!-- Modal content -->
@@ -59,7 +59,7 @@
                 </h3>
                 <span onclick="toggleModal()">&times;</span>
               </div>
-        
+      
               <div class="Box-body">
                 <div class="form-group mb-3">
                   <label for="inFormBookName">Name</label>
@@ -67,21 +67,21 @@
                   <input class="form-control  input-block" type="text" id="inFormBookName" placeholder="Name of the book"
                     aria-label="Name of the book" />
                 </div>
-        
+      
                 <div class="form-group mb-3">
                   <label for="inFormAuthorName">Written by</label>
                   <br>
                   <input class="form-control input-block" type="text" id="inFormAuthorName" placeholder="Author of the book"
                     aria-label="Author of the book" />
                 </div>
-        
+      
                 <div class="form-group mb-3">
                   <label for="inFormPagesNum">Total Pages</label>
                   <br>
                   <input class="form-control " type="number" id="inFormPagesNum" placeholder="Page number of the book"
                     aria-label="Page number of the book" />
                 </div>
-        
+      
                 <div class="form-group mb-3">
                   <label for="inFormNotes">Comments / Notes</label>
                   <br>
@@ -89,55 +89,36 @@
                     placeholder="Here you can write your notes or commets about the book"
                     aria-label="Here you can write your notes or commets about the book" /></textarea>
                 </div>
-        
+      
                 <div class="form-group">
                   <label for="inFormIsRead">
-                    <p class="mr-2">Is already read?</p>
                     <input id="inFormIsRead" type="checkbox" />
+                    <p class="ml-2">Is already read?</p>
                   </label>
                 </div>
               </div>
-        
+      
               <div class="Box-footer mb-3">
                 <div class="form-group">
-                  <button class="btn text-left btn-danger float-left" id="formReset"
-                    type="reset">Clear</button>
-                    <div class="float-right">
-                      <button class="btn btn-invisible" onclick="toggleModal()" type="button">Cancel</button>
-                      <button class="btn btn-primary" onclick="formSubmit()" type="button">Submit</button>
-                    </div>
+                  <button class="btn text-left btn-danger float-left" id="formReset" type="reset">Clear</button>
+                  <div class="float-right">
+                    <button class="btn btn-invisible" onclick="toggleModal()" type="button">Cancel</button>
+                    <button class="btn btn-primary" onclick="formSubmit()" type="button">Submit</button>
+                  </div>
                 </div>
               </div>
             </form>
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </header>
     <main id="site-main">
       <div id="books-wrap">
     
       </div>
     </main>
     <footer id="site-footer"></footer>
+    </div>
     <script src="lib.js"></script>
   </body>
 </html>

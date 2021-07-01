@@ -1,20 +1,43 @@
-body {
-  max-width: 1050px;
+#wrapper {
   margin: 0 auto;
+  height: 100%;
+  width: 100vw;
+  background: linear-gradient(
+    0deg,
+    rgba(241, 255, 228, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background-size: cover;
 }
 
 #site-header,
 #site-main,
 #site-footer {
+  margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1050px !important;
 }
 
 /* Header Styles */
 #navBar {
-  width: 320px;
+  max-width: 320px;
+}
+
+#siteName {
+  min-width: 320px;
+}
+
+.Subhead {
+  flex-basis: 100%;
 }
 /* Main Styles */
+
+#site-main {
+  height: 100vh;
+}
 
 #books-wrap {
   height: 100%;

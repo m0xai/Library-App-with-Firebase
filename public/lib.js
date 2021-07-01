@@ -15,7 +15,7 @@ function toggleModal() {
 
 window.onclick = function (event) {
   if (event.target == modal) {
-    modal.hidden == true;
+    modal.style.display = 'none';
   }
 };
 
