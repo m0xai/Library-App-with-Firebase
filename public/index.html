@@ -5,28 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Die Bibliothek e.V</title>
     <script src="/__/firebase/8.6.8/firebase-app.js"></script>
-    <script  src="/__/firebase/8.6.8/firebase-auth.js"></script>
-    <script  src="/__/firebase/8.6.8/firebase-database.js"></script>
-    <script  src="/__/firebase/8.6.8/firebase-analytics.js"></script>
+    <script src="/__/firebase/8.6.8/firebase-auth.js"></script>
+    <script src="/__/firebase/8.6.8/firebase-database.js"></script>
+    <script src="/__/firebase/8.6.8/firebase-analytics.js"></script>
     <script src="/__/firebase/init.js"></script>
     <link href="https://unpkg.com/@primer/css@^16.0.0/dist/primer.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
-    <header id="siteHeader">
+        <div id="wrapper" class="mt-3">
+    <header id="site-header">
       <div id="siteName">
         <h1 class="h1">Die Bibliothek e.V</h1>
       </div>
-
     </header>
 
-    <main id="site-main">
-      <div id="landing-wrapper" class="height-full flex-column flex-justify-center">
-        <p class="h1">Organise now your library</p>
+    <main id="site-main" class="text-center">
+      <div id="landing-wrapper" class="mt-8 height-full flex-column flex-justify-center">
+        <h2 class="jumbo-text mb-5 mt-5">Organize now your library.</h2>
         <button class="btn btn-large btn-primary h4" id="signInBtn" type="button">Get Started</button>
       </div>
     </main>
     <footer id="site-footer"></footer>
+        </div>
     <script src="index.js"></script>
   </body>
 </html>

@@ -1,3 +1,12 @@
+// TODO: Update read status on click in list.
+// TODO: Add Tooltip animations when added or deleted books.
+// TODO: Add Book images as background or an item and add onclick pop-up with details for every book.
+// TODO: Make a good looking home page.
+// TODO: Show card items also as a list.
+// TODO: Add starting date.
+// TODO: Show comments can be a opening box item in PrimerCSS
+// TODO: Show two items side by side on mobile.
+
 const database = firebase.database();
 const auth = firebase.auth();
 
