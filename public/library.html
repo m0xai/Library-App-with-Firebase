@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Library | Die Bibliothek e.V</title>
-    <script src="/__/firebase/8.6.8/firebase-app.js"></script>
-    <script  src="/__/firebase/8.6.8/firebase-auth.js"></script>
-    <script  src="/__/firebase/8.6.8/firebase-database.js"></script>
-    <script  src="/__/firebase/8.6.8/firebase-analytics.js"></script>
-    <script src="/__/firebase/init.js"></script>
-    <link href="https://unpkg.com/@primer/css@^16.0.0/dist/primer.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/style.css">
-  </head>
-  <body>
-    <div id="wrapper">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Library | Die Bibliothek e.V</title>
+  <script src="/__/firebase/8.6.8/firebase-app.js"></script>
+  <script src="/__/firebase/8.6.8/firebase-auth.js"></script>
+  <script src="/__/firebase/8.6.8/firebase-database.js"></script>
+  <script src="/__/firebase/8.6.8/firebase-analytics.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <link href="https://unpkg.com/@primer/css@^16.0.0/dist/primer.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div id="wrapper">
     <header id="site-header" class="mb-8">
-      <div id="siteName" class="mb-3 flex-1">
-        <h1 class="h1">Die Bibliothek e.V</h1>
-      </div>
 
       <nav id="navBar" class="mb-3 flex-1 d-flex flex-row flex-justify-between flex-items-center">
+        <div id="siteName" class="mb-3 flex-1">
+          <h1 class="h1">Die Bibliothek e.V</h1>
+        </div>
+        <div id="navbar-right" class="d-flex flex-justify-between flex-items-center">
           <a href="/">Home</a>
           <a href="#">About</a>
-          <div id="userDetails" >
+          <div id="userDetails">
             <details class="dropdown details-reset details-overlay d-inline-block">
-              <summary class="btn d-flex flex-row flex-nowrap flex-justify-between flex-items-center" aria-haspopup="true">
+              <summary class="btn d-flex flex- flex-justify-between flex-items-center"
+                aria-haspopup="true">
                 <span id="displayNameWrap"></span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
                   <path fill-rule="evenodd"
@@ -35,19 +39,21 @@
               </summary>
               <ul class="dropdown-menu dropdown-menu-se">
                 <li><span id="displayIdWrap"></span></li>
-                <li><button id="signOutBtn" class="btn btn-invisible" type="button">Log Out</button></li>
+                <li><button id="signOutBtn" class="btn btn-invisible" type="button">Log Out</button>
+                </li>
               </ul>
             </details>
           </div>
+        </div>
       </nav>
       <div class="Subhead">
         <div class="Subhead-heading">📚 Your Books</div>
-      
+
         <div class="Subhead-actions">
           <!-- Trigger/Open The Modal -->
           <button id="toggleModalBtn" class="Btn btn btn-primary">Add new book</button>
         </div>
-      
+
         <!-- The Modal -->
         <div id="myModal" class="modal" style="display: none;">
           <!-- Modal content -->
@@ -59,29 +65,29 @@
                 </h3>
                 <span onclick="toggleModal()">&times;</span>
               </div>
-      
+
               <div class="Box-body">
                 <div class="form-group mb-3">
                   <label for="inFormBookName">Name</label>
                   <br>
-                  <input class="form-control  input-block" type="text" id="inFormBookName" placeholder="Name of the book"
-                    aria-label="Name of the book" />
+                  <input class="form-control  input-block" type="text" id="inFormBookName"
+                    placeholder="Name of the book" aria-label="Name of the book" />
                 </div>
-      
+
                 <div class="form-group mb-3">
                   <label for="inFormAuthorName">Written by</label>
                   <br>
-                  <input class="form-control input-block" type="text" id="inFormAuthorName" placeholder="Author of the book"
-                    aria-label="Author of the book" />
+                  <input class="form-control input-block" type="text" id="inFormAuthorName"
+                    placeholder="Author of the book" aria-label="Author of the book" />
                 </div>
-      
+
                 <div class="form-group mb-3">
                   <label for="inFormPagesNum">Total Pages</label>
                   <br>
-                  <input class="form-control " type="number" id="inFormPagesNum" placeholder="Page number of the book"
-                    aria-label="Page number of the book" />
+                  <input class="form-control " type="number" id="inFormPagesNum"
+                    placeholder="Page number of the book" aria-label="Page number of the book" />
                 </div>
-      
+
                 <div class="form-group mb-3">
                   <label for="inFormNotes">Comments / Notes</label>
                   <br>
@@ -89,20 +95,24 @@
                     placeholder="Here you can write your notes or commets about the book"
                     aria-label="Here you can write your notes or commets about the book" /></textarea>
                 </div>
-      
+
                 <div class="form-group">
                   <label for="inFormIsRead">
-                    <input id="inFormIsRead" type="checkbox" /><p class="ml-2">Is already read?</p>
+                    <input id="inFormIsRead" type="checkbox" />
+                    <p class="ml-2">Is already read?</p>
                   </label>
                 </div>
               </div>
-              
+
               <div class="Box-footer mb-3">
                 <div class="form-group">
-                  <button class="btn text-left btn-danger float-left" id="formReset" type="reset">Clear</button>
+                  <button class="btn text-left btn-danger float-left" id="formReset"
+                    type="reset">Clear</button>
                   <div class="float-right">
-                    <button class="btn btn-invisible" onclick="toggleModal()" type="button">Cancel</button>
-                    <button class="btn btn-primary" onclick="formSubmit()" type="button">Submit</button>
+                    <button class="btn btn-invisible" onclick="toggleModal()"
+                      type="button">Cancel</button>
+                    <button class="btn btn-primary" onclick="formSubmit()"
+                      type="button">Submit</button>
                   </div>
                 </div>
               </div>
@@ -113,11 +123,12 @@
     </header>
     <main id="site-main">
       <div id="books-wrap">
-    
+
       </div>
     </main>
     <footer id="site-footer"></footer>
-    </div>
-    <script src="lib.js"></script>
-  </body>
+  </div>
+  <script src="lib.js"></script>
+</body>
+
 </html>
