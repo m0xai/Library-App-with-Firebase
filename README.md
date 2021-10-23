@@ -1,7 +1,8 @@
 # Library-App-with-Firebase
 A basic Library app backed by firebase
 
-### [Live Preview](https://js-book-lib.web.app/)
+![Screeshot](https://user-images.githubusercontent.com/58932692/138541266-ba28d2c4-2eb8-4a4e-aec3-32c133cda687.png)
+### [🔗 Live Preview](https://js-book-lib.web.app/)
 
 ## Features
 - Add / Delete Book
